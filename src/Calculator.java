@@ -1,6 +1,6 @@
 import javax.swing.*;
-import java.awt.event.*;
-import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Calculator implements ActionListener {
 
@@ -16,7 +16,7 @@ public class Calculator implements ActionListener {
     }
     //Creating Frame
     private void creatingFrame() {
-                f = new JFrame("Calculator");
+        f = new JFrame("Calculator");
         f.setLayout(null);
         f.setVisible(true);
         f.setSize(350, 500);
@@ -42,53 +42,53 @@ public class Calculator implements ActionListener {
         badd = new JButton("+");
         bdec = new JButton(".");
         beq = new JButton("=");
-        bdel = new JButton("Delete");
-        bclr = new JButton("Clear");
+        bdel = new JButton("Del");
+        bclr = new JButton("Clr");
         rparenth = new JButton(")");
         lparenth = new JButton("(");
 
-            f.add(t);
-            f.add(b7);
-            f.add(b8);
-            f.add(b9);
-            f.add(bdiv);
-            f.add(b4);
-            f.add(b5);
-            f.add(b6);
-            f.add(bmul);
-            f.add(b1);
-            f.add(b2);
-            f.add(b3);
-            f.add(bsub);
-            f.add(bdec);
-            f.add(b0);
-            f.add(beq);
-            f.add(badd);
-            f.add(bdel);
-            f.add(bclr);
-            f.add(rparenth);
-            f.add(lparenth);
+        f.add(t);
+        f.add(b7);
+        f.add(b8);
+        f.add(b9);
+        f.add(bdiv);
+        f.add(b4);
+        f.add(b5);
+        f.add(b6);
+        f.add(bmul);
+        f.add(b1);
+        f.add(b2);
+        f.add(b3);
+        f.add(bsub);
+        f.add(bdec);
+        f.add(b0);
+        f.add(beq);
+        f.add(badd);
+        f.add(bdel);
+        f.add(bclr);
+        f.add(rparenth);
+        f.add(lparenth);
 
-                b1.addActionListener(this);
-                b2.addActionListener(this);
-                b3.addActionListener(this);
-                b4.addActionListener(this);
-                b5.addActionListener(this);
-                b6.addActionListener(this);
-                b7.addActionListener(this);
-                b8.addActionListener(this);
-                b9.addActionListener(this);
-                b0.addActionListener(this);
-                badd.addActionListener(this);
-                bdiv.addActionListener(this);
-                bmul.addActionListener(this);
-                bsub.addActionListener(this);
-                bdec.addActionListener(this);
-                beq.addActionListener(this);
-                bdel.addActionListener(this);
-                bclr.addActionListener(this);
-                rparenth.addActionListener(this);
-                lparenth.addActionListener(this);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        b0.addActionListener(this);
+        badd.addActionListener(this);
+        bdiv.addActionListener(this);
+        bmul.addActionListener(this);
+        bsub.addActionListener(this);
+        bdec.addActionListener(this);
+        beq.addActionListener(this);
+        bdel.addActionListener(this);
+        bclr.addActionListener(this);
+        rparenth.addActionListener(this);
+        lparenth.addActionListener(this);
 
     }
     //creating a Layout
@@ -110,9 +110,9 @@ public class Calculator implements ActionListener {
         b0.setBounds(110, 310, 50, 40);
         beq.setBounds(180, 310, 50, 40);
         badd.setBounds(250, 310, 50, 40);
-        bdel.setBounds(30, 380, 70, 40);
-        bclr.setBounds(110, 380, 65, 40);
-        lparenth.setBounds(190, 380, 50, 40);
+        bdel.setBounds(40, 380, 55, 40);
+        bclr.setBounds(110, 380, 50, 40);
+        lparenth.setBounds(180, 380, 50, 40);
         rparenth.setBounds(250, 380, 50, 40);
     }
 
@@ -157,10 +157,12 @@ public class Calculator implements ActionListener {
         {
             if(e.getSource()==beq)
             {
-                ExpressionParser EP = new ExpressionParser(t.getText());
+                String expr;
+                expr = t.getText().replaceAll("\\s", "");
+                Parsing EP = new Parsing(expr);
 
                 t.setText("");
-                t.setText(Double.toString(EP.calculate()));
+                t.setText(Double.toString(EP.parse()));
                 System.out.println(t.getText());
             }
 
