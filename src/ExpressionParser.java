@@ -9,7 +9,7 @@ public class ExpressionParser {
     }
 
     double calculate() {
-        double first = multiply();
+    double first = multiply();
 
         while (pos < tokens.length) {
             String operator = tokens[pos];
