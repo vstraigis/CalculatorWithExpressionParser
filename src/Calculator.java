@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JFrame;
 
@@ -8,7 +7,7 @@ public class Calculator implements ActionListener {
     
     JFrame f;
     JTextField t;
-    JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, bdiv, bmul, bsub, badd, bdec, beq, bdel, bclr;
+    JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, bdiv, bmul, bsub, badd, bdec, beq, bdel, bclr, rparenth, lparenth;
     double a = 0, b = 0, result = 0;
     int operator = 0;
     //int answ=0;
@@ -35,6 +34,8 @@ public class Calculator implements ActionListener {
     beq=new JButton("=");
     bdel=new JButton("Delete");
     bclr=new JButton("Clear");
+    rparenth=new JButton(")");
+    lparenth=new JButton("(");
     t.setBounds(30,40,280,30);
     b7.setBounds(40,100,50,40);
     b8.setBounds(110,100,50,40);
@@ -52,8 +53,10 @@ public class Calculator implements ActionListener {
     b0.setBounds(110,310,50,40);
     beq.setBounds(180,310,50,40);
     badd.setBounds(250,310,50,40);
-    bdel.setBounds(60,380,100,40);
-    bclr.setBounds(180,380,100,40);
+    bdel.setBounds(30,380,70,40);
+    bclr.setBounds(110,380,65,40);
+    lparenth.setBounds(190,380,50,40);
+    rparenth.setBounds(250,380,50,40);
     f.add(t);
     f.add(b7);
     f.add(b8);
@@ -73,6 +76,8 @@ public class Calculator implements ActionListener {
     f.add(badd);
     f.add(bdel);
     f.add(bclr);
+    f.add(rparenth);
+    f.add(lparenth);
     f.setLayout(null);
     f.setVisible(true);
     f.setSize(350,500);
@@ -96,7 +101,10 @@ public class Calculator implements ActionListener {
     beq.addActionListener(this);
     bdel.addActionListener(this);
     bclr.addActionListener(this);
-}
+    rparenth.addActionListener(this);
+    lparenth.addActionListener(this);
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e){
@@ -131,6 +139,10 @@ public class Calculator implements ActionListener {
         t.setText(t.getText().concat(" * "));
         if(e.getSource()==bdiv)
         t.setText(t.getText().concat(" / "));
+        if(e.getSource()==lparenth)
+        t.setText(t.getText().concat("( "));
+        if(e.getSource()==rparenth)
+        t.setText(t.getText().concat(" )"));
 
        {
        if(e.getSource()==beq)
