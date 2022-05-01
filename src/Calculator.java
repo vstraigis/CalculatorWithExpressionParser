@@ -5,11 +5,13 @@ import javax.swing.JFrame;
 
 public class Calculator implements ActionListener {
 
+    
     JFrame f;
     JTextField t;
     JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, bdiv, bmul, bsub, badd, bdec, beq, bdel, bclr;
     double a = 0, b = 0, result = 0;
     int operator = 0;
+    //int answ=0;
 
     Calculator(){
 
@@ -131,52 +133,16 @@ public class Calculator implements ActionListener {
         t.setText(t.getText().concat(" / "));
 
        {
-        //if equals is pressed print textfield
-       // System.out.println(t.getText());
        if(e.getSource()==beq)
        {
+        ExpressionParser EP = new ExpressionParser(t.getText());
+        
+        t.setText("");
+       // int answ = (int)EP.calculate();
+        t.setText(Double.toString(EP.calculate()));
         System.out.println(t.getText());
        }
 
-        // a=Double.parseDouble(t.getText());
-        // operator=1;
-        
-        // }
-        // if(e.getSource()==bsub)
-        // {
-        // a=Double.parseDouble(t.getText());
-        // operator=2;
-        
-        // }
-        // if(e.getSource()==bmul)
-        // {
-        // a=Double.parseDouble(t.getText());
-        // operator=3;
-        
-        // }
-        // if(e.getSource()==bdiv)
-        // {
-        // a=Double.parseDouble(t.getText());
-        // operator=4;
-        
-        // }
-        // if(e.getSource()==beq)
-        // {
-        // b=Double.parseDouble(t.getText());
-        // switch(operator)
-        // {
-        // case 1: result=a+b;
-        // break;
-        // case 2: result=a-b;
-        // break;
-        // case 3: result=a*b;
-        // break;
-        // case 4: result=a/b;
-        // break;
-        // default: result=0;
-        // }
-        // t.setText(""+result);
-        // }
         if(e.getSource()==bclr)
         t.setText("");
         if(e.getSource()==bdel)

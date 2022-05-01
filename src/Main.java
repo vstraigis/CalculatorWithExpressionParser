@@ -11,10 +11,10 @@ public class Main {
 
         // ExpressionParser calcApp = new ExpressionParser(expression);
         // System.out.println(calcApp.calculate());
-
-        // Calculator calc = new Calculator();
-        
         // scanner.close();
+
+        
+        
         new Calculator();
     }
 }
