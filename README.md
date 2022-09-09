@@ -1,2 +1,2 @@
 # Calculator
-Calculator For uni project. Less is more. Made with basic expression parser
+Calculator For University project. Writtewn in java with implemented basic expression parser
