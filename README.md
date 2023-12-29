@@ -1,4 +1,6 @@
-# Calculator with expression parser written in Java
+# University Task
+
+## Calculator with expression parser written in Java
 
 **This simple calculator can perform basic arithmetic operations. It can also parse expressions, so you can directly enter an expression like "2+3" and it will calculate the result.**
 
